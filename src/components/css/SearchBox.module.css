@@ -1,0 +1,227 @@
+/* Import Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* Theme variables */
+:root {
+  --primary-bg: #fafafa;
+  --secondary-bg: #edf2f7;
+  --primary-text: #1a202c;
+  --secondary-text: #4a5568;
+  --accent-color: #2c7a7b;
+  --highlight-color: #e53e3e;
+  --border-light: rgba(0, 0, 0, 0.06);
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease-in-out;
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --input-height: 40px;
+}
+
+/* Wrapper to manage positioning */
+.wrapper {
+  position: relative;
+  width: 80%;
+  max-width: 600px;
+  margin: 0 17px;
+}
+
+/* Header Search Container */
+.headerSearch {
+  display: flex;
+  align-items: center;
+  background: var(--glass-bg);
+  border: 1px solid var(--border-light);
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  position: relative;
+}
+
+.headerSearch:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Search Input */
+.searchInput {
+  flex: 1;
+  height: var(--input-height);
+  border: none;
+  background: transparent;
+  padding: 0 15px;
+  font-family: "Lato", sans-serif;
+  font-size: 14px;
+  color: var(--primary-text);
+  outline: none;
+  border-radius: 25px 0 0 25px;
+  transition: var(--transition);
+}
+
+.searchInput::placeholder {
+  color: var(--secondary-text);
+  font-style: italic;
+}
+
+.searchInput:focus {
+  background: var(--primary-bg);
+}
+
+/* Search Button */
+.searchButton {
+  height: var(--input-height);
+  width: 65px;
+  background: #225e5f;
+  border: none;
+  border-radius: 0 25px 25px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  padding: 0;
+}
+
+.searchButton:hover {
+  background: #d1495b;
+  transform: scale(1.1);
+}
+
+.searchButton svg {
+  font-size: 20px;
+  color: var(--primary-bg);
+  transition: var(--transition);
+}
+
+.searchButton:hover svg {
+  transform: rotate(90deg);
+}
+
+/* Suggestions List */
+.suggestionsList {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background-color: rgb(255, 255, 255) !important;
+  border: 1px solid var(--border-light);
+  border-radius: 0 0 15px 15px;
+  box-shadow: var(--shadow-md);
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 9999;
+  opacity: 1;
+
+  /* 🔐 Force render isolation */
+  isolation: isolate;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+
+  /* 🧱 Solid visual override */
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Suggestion Item */
+.suggestionItem {
+  padding: 10px 15px;
+  font-family: "Lato", sans-serif;
+  font-size: 14px;
+  color: var(--primary-text);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.suggestionItem:hover {
+  background: var(--accent-color);
+  color: white;
+}
+
+/* Responsive Design: Tablet */
+@media (max-width: 768px) {
+  .wrapper {
+    max-width: 400px;
+  }
+
+  .searchInput {
+    height: 36px;
+    font-size: 13px;
+    padding: 0 12px;
+  }
+
+  .searchButton {
+    height: 36px;
+    width: 36px;
+  }
+
+  .searchButton svg {
+    font-size: 18px;
+  }
+
+  .suggestionsList {
+    max-height: 180px;
+  }
+}
+
+/* Responsive Design: Mobile */
+@media (max-width: 480px) {
+  .wrapper {
+    max-width: 300px;
+  }
+
+  .searchInput {
+    height: 32px;
+    font-size: 12px;
+    padding: 0 10px;
+  }
+
+  .searchInput::placeholder {
+    font-size: 11px;
+  }
+
+  .searchButton {
+    height: 32px;
+    width: 32px;
+  }
+
+  .searchButton svg {
+    font-size: 16px;
+  }
+
+  .suggestionsList {
+    max-height: 150px;
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.headerSearch:focus-within {
+  animation: pulse 0.5s ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,175 @@
+/* Define CSS Variables for Consistent Theming */
+:root {
+  --primary-color: #236b7a;
+  --accent-color: #e53935;
+  --bg-light: #f0f4f8; /* Light background */
+  --bg-dark: #e0e8f0; /* Lighter shade for contrast */
+  --text-primary: #1a3c4d; /* Darker font color */
+  --text-secondary: #2a4d5e; /* Darker secondary font color */
+  --border-color: rgba(0, 0, 0, 0.1); /* Darker border */
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  --hover-bg: #d1dfe9; /* Light hover background */
+  --transition: 0.3s ease-in-out;
+}
+
+/* Sidebar Container */
+.sideBar {
+  width: 100%;
+  max-width: 300px;
+  background: var(--bg-light);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  color: var(--text-primary);
+  transition: transform var(--transition), box-shadow var(--transition);
+  min-height: 600px; /* Changed back to 600px */
+  position: sticky; /* Made sidebar sticky */
+  top: 20px; /* Distance from top */
+  align-self: flex-start; /* Ensures it sticks to the start */
+}
+
+.sideBar:hover {
+  transform: translateX(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+/* Category Heading */
+.sideBar h4 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-align: center;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Choose Box Container */
+.chooseBox {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.chooseBox label {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.chooseBox input[type="radio"] {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--text-secondary);
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  transition: border-color var(--transition), background-color var(--transition);
+}
+
+.chooseBox input[type="radio"]:checked {
+  border-color: var(--primary-color);
+  background-color: var(--primary-color);
+}
+
+.chooseBox input[type="radio"]:checked::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: var(--text-primary);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.chooseBox span {
+  font-family: "Lato", sans-serif;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-left: 8px;
+  transition: color var(--transition);
+}
+
+.chooseBox label:hover span {
+  color: var(--text-primary);
+}
+
+/* Horizontal Rule */
+.sideBar hr {
+  border: 0;
+  height: 1px;
+  background: var(--border-color);
+  margin: 15px 0;
+}
+
+/* Clear Button */
+.clearBtn {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(90deg, var(--accent-color), #c92d2d);
+  border: none;
+  border-radius: 5px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background-color var(--transition), transform var(--transition);
+}
+
+.clearBtn:hover {
+  background: linear-gradient(90deg, #c92d2d, #a32424);
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sideBar {
+    max-width: 250px;
+    padding: 15px;
+    min-height: 550px; /* Adjusted height for tablet */
+    top: 15px; /* Adjusted sticky top for tablet */
+  }
+
+  .sideBar h4 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+  }
+
+  .chooseBox span {
+    font-size: 0.9rem;
+  }
+
+  .clearBtn {
+    padding: 8px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sideBar {
+    max-width: 100%;
+    padding: 10px;
+    min-height: 500px; /* Adjusted height for mobile */
+    top: 10px; /* Adjusted sticky top for mobile */
+    margin: 0 auto;
+  }
+
+  .sideBar h4 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+
+  .chooseBox span {
+    font-size: 0.85rem;
+  }
+
+  .clearBtn {
+    padding: 6px;
+    font-size: 0.9rem;
+  }
+}

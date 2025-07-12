@@ -1,0 +1,609 @@
+/* Import Fonts (aligned with CountryDropDown.module.css and Home.module.css) */
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* Theme Variables (aligned with provided theme) */
+:local {
+  --primary-bg: #fafafa; /* Off-white background */
+  --secondary-bg: #edf2f7; /* Soft gray gradient */
+  --primary-text: #1a202c; /* Dark navy */
+  --secondary-text: #4a5568; /* Muted charcoal */
+  --accent-color: #2c7a7b; /* Deep teal */
+  --highlight-color: #e53e3e; /* Vibrant coral */
+  --border-light: rgba(0, 0, 0, 0.06); /* Subtle border */
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.08); /* Light shadow */
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1); /* Medium shadow */
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth easing */
+  --glass-bg: rgba(255, 255, 255, 0.85); /* Stronger glassmorphism */
+  --submenu-hover-bg: #f7fafc; /* Light hover */
+  --font-primary: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+  --font-secondary: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+  --carousel-gap: 0.5rem; /* Tight carousel item gap */
+}
+
+/* Reset */
+:local * {
+  box-sizing: border-box;
+  font-family: var(--font-primary);
+}
+
+/* Product List Container */
+.product-list-type {
+  background: var(--primary-bg);
+  padding: clamp(1rem, 5vw, 2rem) clamp(0.5rem, 3vw, 1rem);
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(0.5rem, 2vw, 1rem);
+}
+
+/* Box Division */
+.box-division {
+  display: flex;
+  gap: clamp(1rem, 3vw, 1.5rem);
+  flex-direction: column;
+}
+
+/* First Box (Category Card) */
+.first-box .card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-md);
+  padding: clamp(1rem, 3vw, 1.5rem);
+  text-align: center;
+  transition: var(--transition);
+  width: 250px; /* Fixed width */
+  height: 200px; /* Fixed height */
+}
+
+.first-box .card-title {
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  font-weight: 600;
+  color: var(--primary-text);
+  margin-bottom: 0.75rem;
+}
+
+.first-box .btn-primary {
+  background: var(--accent-color);
+  border: none;
+  border-radius: 8px;
+  padding: clamp(0.4rem, 1vw, 0.5rem) clamp(1rem, 2vw, 1.5rem);
+  font-family: var(--font-secondary);
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  font-weight: 500;
+  color: var(--primary-bg);
+  transition: var(--transition);
+}
+
+.first-box .btn-primary:hover {
+  background: var(--highlight-color);
+  transform: scale(1.05);
+  box-shadow: var(--shadow-sm);
+}
+
+.first-box .btn-primary:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(44, 122, 123, 0.3);
+}
+
+/* Second Box (Carousel) */
+.second-box {
+  flex: 1;
+}
+
+.middle-portion {
+  padding: 0;
+}
+
+/* Carousel */
+.carousel {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  background: var(--secondary-bg);
+}
+
+/* Carousel Inner (Reduce Gaps) */
+.carousel-inner {
+  display: flex;
+  align-items: stretch;
+}
+
+.carousel-inner .row {
+  margin-left: calc(-1 * var(--carousel-gap));
+  margin-right: calc(-1 * var(--carousel-gap));
+  min-height: 442px;
+}
+
+.carousel-inner .col-6,
+.carousel-inner .col-md-4,
+.carousel-inner .col-lg-3 {
+  padding-left: var(--carousel-gap);
+  padding-right: var(--carousel-gap);
+}
+
+/* Carousel Indicators */
+.carousel-indicators {
+  margin-bottom: 0.5rem;
+}
+
+.carousel-indicators button {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--secondary-text);
+  opacity: 0.5;
+  margin: 0 4px;
+  transition: var(--transition);
+}
+
+.carousel-indicators .active {
+  background-color: var(--accent-color);
+  opacity: 1;
+  transform: scale(1.2);
+  background-color: #2c7a7b !important;
+}
+
+/* Product Item */
+.item {
+  background: linear-gradient(
+    135deg,
+    rgba(189, 233, 239, 0.9),
+    rgba(44, 122, 123, 0.1)
+  ); /* Gradient with theme accent */
+  backdrop-filter: blur(10px); /* Glassmorphism effect */
+  border-radius: 12px; /* Slightly larger radius for premium look */
+  padding: clamp(
+    1rem,
+    2.5vw,
+    1.5rem
+  ); /* Increased padding for better spacing */
+  text-align: center;
+  transition: var(--transition);
+  cursor: pointer;
+  margin: 2px; /* Added 2px margin */
+  border: 1px solid rgba(44, 122, 123, 0.2); /* Subtle border with accent color */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08); /* Enhanced shadow for depth */
+  position: relative; /* For potential overlays */
+  overflow: hidden; /* Ensure content stays within bounds */
+}
+
+.item:hover {
+  transform: translateY(-6px); /* Increased lift on hover */
+  box-shadow: 0 10px 20px rgba(44, 122, 123, 0.2), 0 4px 6px rgba(0, 0, 0, 0.1); /* Stronger shadow on hover */
+  background: linear-gradient(
+    135deg,
+    rgba(189, 233, 239, 0.95),
+    rgba(44, 122, 123, 0.15)
+  ); /* Slightly darker gradient on hover */
+}
+
+.item::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(229, 62, 62, 0.1) 0%,
+    transparent 70%
+  ); /* Subtle highlight effect */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.item:hover::before {
+  opacity: 1;
+}
+
+.product-image {
+  width: 180px; /* Fixed width */
+  height: 180px; /* Fixed height */
+  object-fit: contain; /* Ensures image stays within box */
+  margin-bottom: 1rem; /* Increased margin for spacing */
+  border-radius: 8px; /* Rounded image corners */
+  background: rgba(255, 255, 255, 0.9); /* Light background for image */
+  padding: 0.5rem; /* Padding around image */
+  transition: var(--transition);
+}
+
+.item:hover .product-image {
+  transform: scale(1.05); /* Slightly larger scale on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Shadow on image hover */
+}
+
+.item p {
+  font-family: var(--font-secondary);
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  font-weight: 600; /* Increased weight for professionalism */
+  color: var(--primary-text);
+  margin: 0.5rem 0; /* Increased margin for better spacing */
+  text-transform: capitalize; /* Professional text styling */
+}
+
+.item span.text-decoration-line-through {
+  font-family: var(--font-secondary);
+  font-size: clamp(0.75rem, 2vw, 0.875rem);
+  color: var(--secondary-text);
+  opacity: 0.8; /* Slightly muted for old price */
+}
+
+.item span.text-warning {
+  font-family: var(--font-secondary);
+  font-size: clamp(0.875rem, 2.2vw, 1rem);
+  font-weight: 700; /* Bold for new price */
+  color: var(--highlight-color); /* Using theme highlight color for emphasis */
+}
+
+.item span.fs-6 {
+  font-family: var(--font-secondary);
+  font-size: clamp(0.75rem, 2vw, 0.875rem);
+  color: var(--secondary-text);
+  font-weight: 500; /* Slightly bolder for brand */
+  text-transform: uppercase; /* Professional styling */
+}
+.item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.product-image {
+  width: 180px; /* Fixed width */
+  height: 180px; /* Fixed height */
+  object-fit: contain; /* Ensures image stays within box */
+  margin-bottom: 0.75rem;
+  transition: var(--transition);
+}
+
+.item:hover .product-image {
+  transform: scale(1.03);
+}
+
+.item p {
+  font-family: var(--font-secondary);
+  font-size: 15px !important;
+  font-weight: 700;
+  color: var(--primary-text);
+  margin: 0.25rem 0;
+}
+
+.item span.text-decoration-line-through {
+  font-family: var(--font-secondary);
+  font-size: clamp(0.75rem, 2vw, 0.875rem);
+  color: var(--secondary-text);
+}
+
+.item span.text-warning {
+  font-family: var(--font-secondary);
+  font-size: clamp(0.875rem, 2.2vw, 1rem);
+  font-weight: 600;
+}
+
+.item span.fs-6 {
+  font-family: var(--font-secondary);
+  font-size: clamp(0.75rem, 2vw, 0.875rem);
+  color: var(--secondary-text);
+}
+
+/* View Details Button */
+.view-details-btn {
+  background: linear-gradient(
+    90deg,
+    #4da8aa,
+    #2c7a7b
+  ); /* Light teal (#4da8aa) to dark accent (#2c7a7b) */
+  border: 1px solid rgba(44, 122, 123, 0.3); /* Subtle dark accent border */
+  border-radius: 8px;
+  padding: clamp(0.5rem, 1.2vw, 0.6rem) clamp(1.2rem, 2.5vw, 1.5rem); /* Slightly increased padding */
+  font-family: var(--font-secondary);
+  font-size: clamp(0.8125rem, 2vw, 0.9375rem);
+  font-weight: 600;
+  color: #f0f4f8; /* Light grayish background for text contrast */
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(44, 122, 123, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1); /* Lighter shadow */
+  position: relative; /* For potential overlays */
+  overflow: hidden; /* Ensure content stays within */
+  z-index: 100; /* Unchanged as per instruction */
+}
+
+.view-details-btn::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(77, 168, 170, 0.2) 0%,
+    transparent 70%
+  ); /* Light teal highlight */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1; /* Behind content */
+}
+
+.view-details-btn:hover {
+  transform: translateY(-2px); /* Slight lift */
+  box-shadow: 0 6px 15px rgba(44, 122, 123, 0.2), 0 3px 6px rgba(0, 0, 0, 0.1); /* Slightly darker shadow */
+  background: linear-gradient(
+    90deg,
+    #3e9b9d,
+    #245b5d
+  ); /* Darker teal shades on hover */
+}
+
+.view-details-btn:hover::before {
+  opacity: 1; /* Show light highlight effect */
+}
+
+.view-details-btn:active {
+  transform: scale(0.98); /* Slight press effect */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Reduced shadow */
+}
+
+.view-details-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(77, 168, 170, 0.4); /* Light teal focus ring */
+}
+
+.view-details-btn:hover {
+  background: var(--highlight-color);
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(229, 62, 62, 0.3);
+}
+
+.view-details-btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.view-details-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(44, 122, 123, 0.3);
+}
+
+/* Carousel Controls */
+.previous-button,
+.next-button {
+  height: 15%;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-light);
+  border-radius: 50%;
+  transition: var(--transition);
+  position: absolute;
+  top: 50% !important;
+  transform: translateY(-50%);
+}
+
+.previous-button {
+  left: clamp(8px, 2vw, 16px);
+}
+
+.next-button {
+  right: clamp(8px, 2vw, 16px);
+}
+
+.previous-button:hover,
+.next-button:hover {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  transform: translateY(-50%) scale(1.05);
+  box-shadow: var(--shadow-sm);
+}
+
+.previous-button:focus,
+.next-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(44, 122, 123, 0.3);
+}
+
+.previous-icon,
+.next-icon {
+  font-size: clamp(18px, 3vw, 24px);
+  color: var(--primary-text);
+  transition: var(--transition);
+}
+
+.previous-button:hover .previous-icon,
+.next-button:hover .next-icon {
+  color: var(--primary-bg);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.item {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  .product-list-type {
+    padding: 1rem 0.5rem;
+  }
+
+  .box-division {
+    gap: 0.75rem;
+  }
+
+  .box-division .first-box {
+    display: block !important;
+  }
+  .first-box .card {
+    padding: 1rem;
+    border-radius: 8px;
+    width: 200px; /* Adjusted for mobile */
+    height: 150px; /* Adjusted for mobile */
+    margin-bottom: 13px;
+    width: 100%;
+  }
+
+  .carousel {
+    border-radius: 6px;
+  }
+
+  .carousel-indicators {
+    margin-bottom: 0.25rem;
+  }
+
+  .carousel-indicators button {
+    width: 6px;
+    height: 6px;
+    margin: 0 3px;
+  }
+
+  .carousel-inner .col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .item {
+    padding: 0.5rem;
+    margin: 2px; /* Added 2px margin */
+  }
+
+  .product-image {
+    max-width: 120px; /* Adjusted for mobile */
+    height: 120px; /* Adjusted for mobile */
+    object-fit: contain; /* Ensures image stays within box */
+  }
+
+  .previous-button,
+  .next-button {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* Tablet (481px–768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .product-list-type {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .box-division {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .first-box {
+    flex: 0 0 35%;
+  }
+
+  .second-box {
+    flex: 0 0 65%;
+  }
+
+  .first-box .card {
+    padding: 1.25rem;
+    width: 220px; /* Adjusted for tablet */
+    height: 180px; /* Adjusted for tablet */
+  }
+
+  .carousel {
+    border-radius: 8px;
+  }
+
+  .carousel-inner .col-md-4 {
+    flex: 0 0 33.333%;
+    max-width: 33.333%;
+  }
+
+  .item {
+    padding: 0.75rem;
+    margin: 2px; /* Added 2px margin */
+  }
+
+  .product-image {
+    max-width: 140px; /* Adjusted for tablet */
+    height: 140px; /* Adjusted for tablet */
+    object-fit: contain; /* Ensures image stays within box */
+  }
+
+  .previous-button,
+  .next-button {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Desktop (min-width: 769px) */
+@media (min-width: 769px) {
+  .box-division {
+    flex-direction: row;
+  }
+
+  .first-box {
+    flex: 0 0 25%;
+  }
+
+  .second-box {
+    flex: 0 0 75%;
+  }
+
+  .carousel-inner .col-lg-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+
+  .first-box .card {
+    width: 250px; /* Fixed width for desktop */
+    height: 200px; /* Fixed height for desktop */
+  }
+
+  .item {
+    margin: 2px; /* Added 2px margin */
+  }
+
+  .product-image {
+    width: 180px; /* Fixed width for desktop */
+    height: 180px; /* Fixed height for desktop */
+    object-fit: contain; /* Ensures image stays within box */
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .product-list-type,
+  .first-box .card,
+  .carousel,
+  .item {
+    border: 2px solid var(--primary-text);
+  }
+
+  .view-details-btn,
+  .previous-button,
+  .next-button {
+    border: 2px solid var(--primary-text);
+  }
+
+  .previous-icon,
+  .next-icon {
+    color: var(--primary-text);
+  }
+}

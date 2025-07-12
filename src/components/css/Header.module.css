@@ -1,0 +1,447 @@
+/* Theme variables for consistency */
+:local {
+  --primary-bg: #ffffff; /* Cleaner white for a professional look */
+  --secondary-bg: linear-gradient(
+    180deg,
+    #f7fafc,
+    #edf2f7
+  ); /* Subtle gradient */
+  --primary-text: #1a202c; /* Darker for readability */
+  --secondary-text: #5a6778; /* Softer secondary text */
+  --accent-color: #319795; /* Vibrant teal for interactivity */
+  --highlight-color: #e3342f; /* Bold red for emphasis */
+  --border-light: rgba(0, 0, 0, 0.08); /* Subtle border */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06); /* Softer shadow */
+  --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.08); /* Elevated shadow */
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth easing */
+  --glass-bg: rgba(255, 255, 255, 0.85); /* Glassmorphism effect */
+  --submenu-hover-bg: #f1f5f9; /* Lighter hover for submenus */
+  --font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif; /* Modern font stack */
+}
+
+/* Reset and base styles */
+:local * {
+  box-sizing: border-box;
+  font-family: var(--font-primary);
+}
+
+.logoWrapperMobile {
+  width: 80px;
+  flex-shrink: 0;
+}
+
+.logoImageMobile {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.searchBarWrapperMobile {
+  margin: 0 10px;
+}
+
+.menuWrapperMobile {
+  width: 40px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Header wrapper */
+.headerWrapper {
+  background: var(--primary-bg);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  z-index: 1100; /* Above all content */
+}
+
+/* Header */
+.headerWrapper .header {
+  width: 100%;
+  background: var(--secondary-bg);
+  padding: 1rem 1.25rem; /* Balanced padding */
+  box-shadow: var(--shadow-sm);
+  animation: fadeIn 0.8s ease-out forwards;
+  position: static; /* Non-sticky to avoid overlap */
+  z-index: 1000;
+  transition: box-shadow var(--transition);
+}
+
+.headerWrapper .header.scrolled {
+  box-shadow: var(--shadow-md);
+}
+
+.signInButton {
+  cursor: pointer;
+}
+
+.signInButton:hover {
+  background-color: #225e5f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(44, 122, 123, 0.3);
+}
+
+.userButton {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.userButton:hover {
+  background-color: #225e5f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(44, 122, 123, 0.3);
+}
+
+/* Mobile menu */
+.mobileMenu {
+  background: var(--glass-bg);
+  backdrop-filter: blur(8px); /* Glassmorphism */
+  border-top: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+  animation: slideIn 0.3s ease-out;
+  padding: 1.5rem 1rem;
+  max-height: 80vh; /* Prevent overflow on small screens */
+  overflow-y: auto; /* Scrollable if content exceeds */
+}
+
+.signInButton {
+  cursor: pointer;
+}
+
+.signInButton:hover {
+  background-color: #225e5f; /* Darker teal */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(44, 122, 123, 0.3);
+}
+
+.userButton {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.userButton:hover {
+  background-color: #225e5f; /* Darker teal */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(44, 122, 123, 0.3);
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Logo wrapper */
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoImage {
+  max-width: 140px; /* Prominent but not oversized */
+  height: auto;
+  transition: var(--transition);
+  filter: brightness(1);
+}
+
+.logoImage:hover {
+  transform: scale(1.03);
+  filter: brightness(1.05);
+}
+
+/* Part 3 (user and cart section) */
+.part3 {
+  margin-left: auto;
+  gap: 0.75rem; /* Consistent spacing */
+  align-items: center;
+}
+
+/* Circle buttons */
+.circleButton {
+  background: var(--glass-bg);
+  color: var(--primary-text);
+  min-width: 40px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid var(--border-light);
+  transition: var(--transition);
+  backdrop-filter: blur(4px);
+}
+
+.circleButton:hover {
+  background: var(--accent-color);
+  color: #ffffff;
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(49, 151, 149, 0.2);
+}
+
+.circleButton:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+.circleButton svg {
+  font-size: 20px;
+}
+
+/* Cart tab */
+.cartTab {
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.price {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary-text);
+  letter-spacing: 0.02em;
+}
+
+.cartIconWrapper {
+  position: relative;
+}
+
+.cartCount {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--highlight-color);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--primary-bg);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: var(--transition);
+}
+
+.cartCount:hover {
+  transform: scale(1.1);
+}
+
+/* Navigation wrapper */
+.navWrapper {
+  position: sticky;
+  top: 0;
+  z-index: 999; /* Below header but above content */
+  background: var(--primary-bg);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.navWrapper.scrolled {
+  box-shadow: var(--shadow-md);
+  background: var(--glass-bg);
+  backdrop-filter: blur(6px); /* Glassmorphism on scroll */
+}
+
+/* Mobile-specific styles */
+@media (max-width: 575.98px) {
+  .headerWrapper {
+    padding: 0;
+  }
+
+  .logoImage {
+    max-width: 100px; /* Smaller for mobile */
+  }
+
+  .mobileMenu {
+    padding: 1rem;
+  }
+
+  .mobileMenu .btn-primary {
+    width: 100%; /* Full-width sign-in button */
+    padding: 0.75rem;
+    font-size: 16px;
+  }
+
+  .mobileMenu .circleButton {
+    padding: 0.5rem;
+    font-size: 14px;
+    width: auto; /* Allow text like "Cart (1)" */
+    min-width: 100px;
+  }
+
+  .mobileMenu .circleButton svg {
+    margin-right: 0.5rem;
+  }
+
+  .circleButton {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    color: black;
+  }
+
+  .circleButton svg {
+    font-size: 18px;
+  }
+
+  .cartTab {
+    margin-left: 0;
+  }
+
+  .price {
+    font-size: 13px;
+  }
+
+  .cartCount {
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+    top: -6px;
+    right: -6px;
+  }
+
+  /* Ensure search bar and navigation fit mobile */
+  [class*="w-100"] {
+    padding: 0.5rem;
+  }
+}
+
+/* Tablet styles */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .headerWrapper .header {
+    padding: 1rem 1.25rem;
+  }
+
+  .logoImage {
+    max-width: 120px;
+  }
+
+  .part3 {
+    gap: 0.5rem;
+  }
+
+  .circleButton {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+  }
+
+  .circleButton svg {
+    font-size: 18px;
+  }
+
+  .cartTab {
+    margin-left: 0.75rem;
+  }
+
+  .price {
+    font-size: 13px;
+  }
+
+  .cartCount {
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+    top: -6px;
+    right: -6px;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+  .headerWrapper .header {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .logoImage {
+    max-width: 150px;
+  }
+
+  .part3 {
+    gap: 1rem;
+  }
+
+  .circleButton {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+  }
+
+  .circleButton svg {
+    font-size: 22px;
+  }
+
+  .cartTab {
+    margin-left: 1rem;
+  }
+
+  .price {
+    font-size: 15px;
+  }
+
+  .cartCount {
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
+    top: -10px;
+    right: -10px;
+  }
+}
+
+/* Light mode adjustments */
+@media (prefers-color-scheme: light) {
+  .headerWrapper {
+    background: var(--primary-bg);
+  }
+
+  .circleButton:hover {
+    background: var(--accent-color);
+    color: #ffffff;
+  }
+
+  .navWrapper {
+    background: var(--primary-bg);
+  }
+}
+
+/* High contrast mode for accessibility */
+@media (prefers-contrast: high) {
+  .headerWrapper {
+    border-bottom: 2px solid var(--primary-text);
+  }
+
+  .circleButton {
+    border: 2px solid var(--primary-text);
+  }
+
+  .cartCount {
+    border: 2px solid var(--primary-text);
+  }
+}

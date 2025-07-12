@@ -1,0 +1,183 @@
+.billingWrapper {
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1a202c;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.formGroup input {
+  padding: 0.75rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.formGroup input:focus {
+  border-color: #319795;
+  box-shadow: 0 0 0 3px rgba(49, 151, 149, 0.2);
+}
+
+.submitButton {
+  background-color: #319795;
+  color: white;
+  padding: 0.85rem;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #2c7a7b;
+}
+
+.amountBox {
+  flex: 1;
+  background-color: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1.5rem;
+  height: fit-content;
+}
+
+.amountBox h3 {
+  margin-bottom: 1.25rem;
+  color: #2d3748;
+  font-size: 20px;
+}
+
+.amountRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 16px;
+  color: #4a5568;
+}
+
+.total {
+  font-weight: bold;
+  font-size: 18px;
+  color: #1a202c;
+}
+
+/* Proceed to Payment Button */
+.paymentButton {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 0.85rem;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #319795;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.paymentButton:hover {
+  background-color: #2c7a7b;
+}
+
+/* Popup Overlay */
+.popupOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* Popup Box */
+.popup {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+}
+
+.popup h3 {
+  font-size: 22px;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+.popup p {
+  font-size: 16px;
+  color: #4a5568;
+  margin-bottom: 1.5rem;
+}
+
+/* Final Receipt Button */
+.receiptButton {
+  background-color: #319795;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.receiptButton:hover {
+  background-color: #2c7a7b;
+}

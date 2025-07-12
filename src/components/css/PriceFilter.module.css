@@ -1,0 +1,40 @@
+.price-filter {
+  width: 100%;
+  padding: 10px;
+}
+
+.title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.slider {
+  width: 100%;
+  appearance: none;
+  height: 6px;
+  background: #2c7a7b;
+  border-radius: 3px;
+  outline: none;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #1a3c4d;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #673ab7;
+  border: none;
+  cursor: pointer;
+}

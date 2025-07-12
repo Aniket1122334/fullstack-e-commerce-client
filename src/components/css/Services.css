@@ -1,0 +1,222 @@
+/* Import Fonts (aligned with CountryDropDown.module.css and Home.module.css) */
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* Theme Variables (aligned with project theme) */
+:local {
+  --primary-bg: #fafafa; /* Off-white background */
+  --secondary-bg: #edf2f7; /* Soft gray */
+  --primary-text: #1a202c; /* Dark navy */
+  --secondary-text: #4a5568; /* Muted charcoal */
+  --accent-color: #2c7a7b; /* Deep teal */
+  --highlight-color: #e53e3e; /* Vibrant coral */
+  --border-light: rgba(0, 0, 0, 0.06); /* Subtle border */
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.08); /* Light shadow */
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1); /* Medium shadow */
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth easing */
+  --glass-bg: rgba(255, 255, 255, 0.85); /* Strong glassmorphism */
+  --submenu-hover-bg: #f7fafc; /* Light hover */
+  --font-primary: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+  --font-secondary: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+}
+
+/* Reset */
+:local * {
+  box-sizing: border-box;
+  font-family: var(--font-primary);
+}
+
+/* Service Box */
+.service-box {
+  background: var(--primary-bg);
+  min-height: 30rem;
+  padding: clamp(2rem, 10vw, 4rem) clamp(1rem, 5vw, 2rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Heading */
+.service-box h3 {
+  font-family: var(--font-primary);
+  font-size: clamp(1.75rem, 6vw, 3rem);
+  font-weight: 700;
+  color: var(--primary-text);
+  text-align: center;
+  margin-bottom: clamp(1.5rem, 5vw, 2.5rem);
+  padding-bottom: clamp(0.75rem, 3vw, 1rem);
+}
+
+/* Service Inner Box */
+.service-inner-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(1rem, 3vw, 1.5rem);
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Service Card */
+.service-inner-box > div {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-md);
+  padding: clamp(1rem, 3vw, 1.5rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: var(--transition);
+  width: 100%;
+  text-align: center;
+}
+
+.service-inner-box > div:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(44, 122, 123, 0.15);
+}
+
+/* Icon */
+.service-inner-box svg {
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  color: var(--accent-color);
+  margin-bottom: 0.75rem;
+}
+
+/* Card Text */
+.service-inner-box p {
+  font-family: var(--font-secondary);
+  font-size: clamp(0.9375rem, 3vw, 1.125rem);
+  font-weight: 500;
+  color: var(--secondary-text);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.8s ease-out forwards;
+}
+
+/* Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  .service-box {
+    padding: 1.5rem 0.75rem;
+    min-height: 24rem;
+  }
+
+  .service-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .service-inner-box {
+    gap: 0.75rem;
+  }
+
+  .service-inner-box > div {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  .service-inner-box svg {
+    font-size: 2rem;
+  }
+
+  .service-inner-box p {
+    font-size: 0.875rem;
+  }
+}
+
+/* Tablet (481px–768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .service-box {
+    padding: 2rem 1rem;
+  }
+
+  .service-box h3 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-inner-box {
+    gap: 1rem;
+  }
+
+  .service-inner-box > div {
+    width: calc(50% - 0.5rem);
+    padding: 1.25rem;
+    border-radius: 10px;
+  }
+
+  .service-inner-box svg {
+    font-size: 2.25rem;
+  }
+
+  .service-inner-box p {
+    font-size: 1rem;
+  }
+}
+
+/* Desktop (min-width: 769px) */
+@media (min-width: 769px) {
+  .service-inner-box > div {
+    width: calc(25% - 1.125rem);
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .service-box {
+    background: #ffffff;
+    border-bottom: 2px solid var(--primary-text);
+  }
+
+  .service-inner-box > div {
+    border: 2px solid var(--primary-text);
+    background: #ffffff;
+  }
+
+  .service-inner-box svg {
+    color: var(--primary-text);
+  }
+
+  .service-inner-box p {
+    color: var(--primary-text);
+  }
+}

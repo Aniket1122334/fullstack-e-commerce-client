@@ -1,0 +1,29 @@
+/* Import Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* Import Bootstrap CSS */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css");
+
+/* Import Remix Icons */
+@import url("https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css");
+
+:root {
+  --primary-bg: #fafafa; /* Cleaner off-white */
+  --secondary-bg: #edf2f7; /* Softer gray */
+  --primary-text: #1a202c; /* Richer navy */
+  --secondary-text: #4a5568; /* Muted charcoal */
+  --accent-color: #2c7a7b; /* Deep teal */
+  --highlight-color: #e53e3e; /* Vibrant coral */
+  --border-light: rgba(0, 0, 0, 0.06); /* Subtle border */
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.08); /* Light shadow */
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1); /* Medium shadow */
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth timing */
+  --glass-bg: rgba(255, 255, 255, 0.7); /* Glassmorphism */
+  --submenu-hover-bg: #f7fafc; /* Light gray for submenu hover */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

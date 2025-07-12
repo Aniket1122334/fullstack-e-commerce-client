@@ -1,0 +1,302 @@
+:local {
+  --primary-bg: #fafafa; /* Cleaner off-white */
+  --secondary-bg: #edf2f7; /* Softer gray */
+  --primary-text: #1a202c; /* Richer navy */
+  --secondary-text: #4a5568; /* Muted charcoal */
+  --accent-color: #2c7a7b; /* Deep teal */
+  --highlight-color: #e53e3e; /* Vibrant coral */
+  --border-light: rgba(0, 0, 0, 0.06); /* Subtle border */
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.08); /* Light shadow */
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1); /* Medium shadow */
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth timing */
+  --glass-bg: rgba(255, 255, 255, 0.7); /* Glassmorphism */
+  --submenu-hover-bg: #f7fafc; /* Light gray for submenu hover */
+  --font-primary: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+  --font-secondary: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+}
+
+.contactContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Top alignment */
+  align-items: center;
+  padding: 40px 20px; /* Top padding set to 40px */
+  background: linear-gradient(
+    135deg,
+    var(--primary-bg) 0%,
+    var(--secondary-bg) 100%
+  );
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font-primary);
+}
+
+.contactTitle {
+  font-size: 3rem; /* Increased from 2.5rem */
+  color: var(--primary-text);
+  text-align: center;
+  margin-bottom: 15px; /* Increased from 10px */
+  text-transform: uppercase;
+  letter-spacing: 2px; /* Increased from 1.5px */
+  animation: fadeInDown 1s ease-out;
+}
+
+.contactSubtitle {
+  font-size: 1.5rem; /* Increased from 1.2rem */
+  color: var(--secondary-text);
+  text-align: center;
+  margin-bottom: 30px; /* Unchanged */
+  font-family: var(--font-secondary);
+  animation: fadeInUp 1s ease-out 0.5s backwards;
+}
+
+.contactCard {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px); /* Slightly increased blur */
+  padding: 40px; /* Increased from 25px */
+  border-radius: 20px;
+  box-shadow: var(--shadow-md);
+  width: 100%;
+  max-width: 700px; /* Increased from 500px */
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* Increased from 25px */
+  border: 1px solid var(--border-light);
+  animation: slideInScale 1.2s ease-out;
+  margin-top: 20px; /* Increased from 10px */
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Increased from 15px */
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Increased from 10px */
+  font-size: 1.2rem; /* Increased from 1rem */
+  color: var(--primary-text);
+  transition: var(--transition);
+  word-break: break-word; /* Allows breaking long words */
+  max-width: 100%; /* Ensures it stays within container */
+}
+
+.contactItem:hover {
+  transform: translateX(10px); /* Unchanged */
+  color: var(--accent-color);
+}
+
+.icon {
+  color: var(--accent-color);
+  font-size: 2rem; /* Increased from 1.5rem */
+  transition: var(--transition);
+}
+
+.contactItem:hover .icon {
+  color: var(--highlight-color);
+}
+
+.link {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 600; /* Increased boldness */
+  font-size: 1.2rem; /* Increased from 1rem */
+  transition: var(--transition);
+  word-break: break-all; /* Breaks long email addresses */
+  overflow-wrap: break-word; /* Ensures wrapping */
+  max-width: 80%; /* Limits width to prevent overflow */
+}
+
+.link:hover {
+  color: var(--highlight-color);
+  text-decoration: underline;
+}
+
+.socialMedia {
+  text-align: center;
+}
+
+.socialTitle {
+  font-size: 1.8rem; /* Increased from 1.3rem */
+  color: var(--primary-text);
+  margin-bottom: 20px; /* Increased from 15px */
+  font-family: var(--font-secondary);
+  animation: fadeIn 1s ease-out 0.7s backwards;
+}
+
+.socialIcons {
+  display: flex;
+  justify-content: center;
+  gap: 25px; /* Increased from 15px */
+  flex-wrap: wrap;
+}
+
+.socialLink {
+  color: var(--secondary-text);
+  font-size: 2.2rem; /* Increased from 1.7rem */
+  transition: var(--transition);
+}
+
+.socialLink:hover {
+  color: var(--accent-color);
+  transform: scale(1.3); /* Unchanged */
+}
+
+.backgroundAnimation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(44, 122, 123, 0.1) 0%,
+    transparent 70%
+  );
+  animation: rotateBackground 25s linear infinite;
+  z-index: -1;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInScale {
+  from {
+    opacity: 0;
+    transform: translateX(-20px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rotateBackground {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contactTitle {
+    font-size: 2.2rem; /* Increased from 1.8rem */
+  }
+
+  .contactSubtitle {
+    font-size: 1.2rem; /* Increased from 0.9rem */
+  }
+
+  .contactContainer {
+    padding-top: 40px; /* Consistent 40px for tablet */
+  }
+
+  .contactCard {
+    padding: 30px; /* Increased from 20px */
+    max-width: 90%;
+    margin-top: 15px; /* Increased from 8px */
+  }
+
+  .contactItem {
+    font-size: 1.1rem; /* Increased from 0.9rem */
+  }
+
+  .icon {
+    font-size: 1.7rem; /* Increased from 1.3rem */
+  }
+
+  .socialTitle {
+    font-size: 1.5rem; /* Increased from 1.1rem */
+  }
+
+  .socialLink {
+    font-size: 2rem; /* Increased from 1.5rem */
+  }
+}
+
+@media (max-width: 480px) {
+  .contactTitle {
+    font-size: 1.8rem; /* Increased from 1.5rem */
+  }
+
+  .contactSubtitle {
+    font-size: 1rem; /* Increased from 0.8rem */
+  }
+
+  .contactContainer {
+    padding-top: 40px; /* Consistent 40px for mobile */
+  }
+
+  .contactCard {
+    padding: 20px; /* Increased from 15px */
+    margin-top: 10px; /* Increased from 5px */
+  }
+
+  .contactItem {
+    flex-direction: column; /* Stack label and value vertically */
+    align-items: center; /* Center align items */
+    text-align: center; /* Center text */
+    font-size: 1rem; /* Increased from 0.85rem */
+    gap: 5px; /* Reduced gap for vertical layout */
+  }
+
+  .icon {
+    font-size: 1.5rem; /* Increased from 1.2rem */
+  }
+
+  .link {
+    font-size: 1rem; /* Increased from 0.85rem */
+    max-width: 100%; /* Full width on mobile */
+    word-break: break-all; /* Ensures email breaks */
+    overflow-wrap: break-word; /* Prevents overflow */
+    text-align: center; /* Center the email/mobile number */
+  }
+
+  .socialTitle {
+    font-size: 1.3rem; /* Increased from 1rem */
+  }
+
+  .socialIcons {
+    gap: 15px; /* Increased from 10px */
+  }
+
+  .socialLink {
+    font-size: 1.8rem; /* Increased from 1.3rem */
+  }
+}

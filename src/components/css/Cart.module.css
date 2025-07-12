@@ -1,0 +1,486 @@
+/* Define CSS Variables for Consistent Theming */
+:root {
+  --primary-color: #236b7a;
+  --accent-color: #e53935;
+  --highlight-color: #f2f8f9;
+  --text-primary: #1a1a1a;
+  --text-secondary: #606c76;
+  --border-color: #e0e0e0;
+  --bg-card: #ffffff;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --hover-bg: #f1f1f1;
+  --light-gray: #f9f9f9;
+  --font-size-heading: 2.2rem;
+  --font-size-subtext: 1rem;
+  --font-size-text: 15px;
+  --font-size-button: 16px;
+  --transition: 0.2s ease-in-out;
+}
+
+/* Main Section */
+.section {
+  padding: 50px 0;
+  background-color: #f8fafc;
+  color: var(--text-primary);
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px;
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+/* Header */
+.heading {
+  font-size: var(--font-size-heading);
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--primary-color);
+}
+
+/* Summary */
+.summary {
+  font-size: var(--font-size-subtext);
+  color: var(--text-secondary);
+  margin-bottom: 25px;
+}
+
+/* Table Styling */
+.tableWrapper {
+  overflow-x: auto;
+  margin-bottom: 30px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.tableHeader {
+  padding: 16px;
+  background-color: var(--primary-color);
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+  font-size: var(--font-size-text);
+  letter-spacing: 0.3px;
+}
+
+.table td {
+  padding: 20px 16px;
+  vertical-align: middle;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+  font-size: var(--font-size-text);
+}
+
+/* Product Column */
+.productColumn {
+  text-align: left;
+  min-width: 250px;
+}
+
+.productLink {
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: color var(--transition);
+}
+
+.productLink:hover {
+  color: var(--primary-color);
+}
+
+.productInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.imageWrapper {
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: var(--highlight-color);
+}
+
+.productImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.infoText h6 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.price,
+.subtotal {
+  font-weight: 600;
+  color: var(--primary-color);
+  font-size: 16px;
+}
+
+/* Quantity Controls */
+.quantityControls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.quantityControls button {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  font-size: var(--font-size-button);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color var(--transition);
+}
+
+.quantityControls button:hover {
+  background-color: #1c5864;
+}
+
+.quantityValue {
+  padding: 6px 14px;
+  border: 1px solid var(--border-color);
+  background-color: var(--light-gray);
+  border-radius: 6px;
+  min-width: 36px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Remove Button */
+.removeButton {
+  background: transparent;
+  border: none;
+  color: var(--accent-color);
+  font-size: 20px;
+  cursor: pointer;
+  transition: transform var(--transition);
+}
+
+.removeButton:hover {
+  transform: scale(1.2);
+  color: #c62828;
+}
+
+/* Centered Text for Specific Columns */
+.centeredText {
+  text-align: center;
+}
+
+/* Enhanced and Stabilized Total Amount Section */
+.totalAmount {
+  background: linear-gradient(
+    135deg,
+    var(--highlight-color),
+    rgba(242, 248, 249, 0.98)
+  );
+  border: 1px solid var(--border-color);
+  padding: 24px;
+  border-radius: 12px;
+  margin-top: 30px;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
+}
+
+.totalAmount:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(35, 107, 122, 0.12);
+}
+
+.totalAmount h4 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 1;
+  transition: color 0.25s ease-out;
+}
+
+.totalAmount h4:hover {
+  color: #1c5864; /* Darker shade of primary-color for hover */
+}
+
+.dFlex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12px 0;
+  padding: 12px 16px;
+  background-color: var(--light-gray);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  position: relative;
+  z-index: 1;
+  transition: background-color 0.25s ease-out, transform 0.25s ease-out,
+    box-shadow 0.25s ease-out;
+}
+
+.dFlex:hover {
+  background-color: var(--hover-bg);
+  transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.dFlex h6 {
+  font-family: "Open Sans", sans-serif;
+  font-size: var(--font-size-text);
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin: 0;
+  transition: color 0.25s ease-out;
+}
+
+.dFlex h6:hover {
+  color: var(--text-primary);
+}
+
+.dFlex span {
+  font-family: "Open Sans", sans-serif;
+  font-size: var(--font-size-text);
+  font-weight: 600;
+  color: var(--primary-color);
+  transition: color 0.25s ease-out;
+}
+
+.dFlex span:hover {
+  color: #1c5864; /* Darker shade of primary-color for hover */
+}
+
+.dFlex:last-child {
+  margin-bottom: 0;
+}
+
+.totalButton {
+  width: 100%;
+  padding: 14px 20px;
+  background: linear-gradient(45deg, var(--primary-color), #1c5864);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: "Poppins", sans-serif;
+  font-size: var(--font-size-button);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  margin-top: 20px;
+  box-shadow: var(--shadow);
+  position: relative;
+  z-index: 1;
+  transition: background-color 0.25s ease-out, transform 0.25s ease-out,
+    box-shadow 0.25s ease-out;
+}
+
+.totalButton:hover {
+  background: linear-gradient(
+    45deg,
+    #1c5864,
+    #174d4f
+  ); /* Darker gradient for hover */
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(35, 107, 122, 0.3);
+}
+
+.totalButton h5 {
+  margin: 0;
+  font-size: var(--font-size-button);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .section {
+    padding: 40px 0;
+  }
+
+  .container {
+    padding: 24px;
+    max-width: 900px;
+  }
+
+  .heading {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+
+  .summary {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+
+  .tableHeader {
+    padding: 14px;
+    font-size: 14px;
+  }
+
+  .table td {
+    padding: 16px;
+    font-size: 14px;
+  }
+
+  .imageWrapper {
+    width: 50px;
+    height: 50px;
+  }
+
+  .infoText h6 {
+    font-size: 14px;
+  }
+
+  .price,
+  .subtotal {
+    font-size: 14px;
+  }
+
+  .quantityControls button {
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+
+  .quantityValue {
+    padding: 5px 12px;
+    font-size: 14px;
+  }
+
+  .removeButton {
+    font-size: 18px;
+  }
+
+  .totalAmount {
+    padding: 20px;
+    margin-top: 25px;
+  }
+
+  .totalAmount h4 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+  }
+
+  .dFlex {
+    margin: 10px 0;
+    padding: 10px 12px;
+  }
+
+  .dFlex h6,
+  .dFlex span {
+    font-size: 14px;
+  }
+
+  .totalButton {
+    padding: 12px 18px;
+    font-size: 14px;
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 30px 0;
+  }
+
+  .container {
+    padding: 16px;
+    max-width: 100%;
+  }
+
+  .heading {
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+  }
+
+  .summary {
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+  }
+
+  .tableHeader {
+    padding: 12px;
+    font-size: 13px;
+  }
+
+  .table td {
+    padding: 12px;
+    font-size: 13px;
+  }
+
+  .imageWrapper {
+    width: 45px;
+    height: 45px;
+  }
+
+  .infoText h6 {
+    font-size: 13px;
+  }
+
+  .price,
+  .subtotal {
+    font-size: 13px;
+  }
+
+  .quantityControls button {
+    padding: 4px 8px;
+    font-size: 13px;
+  }
+
+  .quantityValue {
+    padding: 4px 10px;
+    font-size: 13px;
+  }
+
+  .removeButton {
+    font-size: 16px;
+  }
+
+  .totalAmount {
+    padding: 16px;
+    margin-top: 20px;
+  }
+
+  .totalAmount h4 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+
+  .dFlex {
+    margin: 8px 0;
+    padding: 8px 10px;
+  }
+
+  .dFlex h6,
+  .dFlex span {
+    font-size: 13px;
+  }
+
+  .totalButton {
+    padding: 10px 16px;
+    font-size: 13px;
+    margin-top: 12px;
+  }
+}

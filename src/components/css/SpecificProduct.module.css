@@ -1,0 +1,243 @@
+/* Define CSS Variables for Consistent Theming */
+:root {
+  --primary-color: #2c7a7b; /* Deep teal */
+  --secondary-color: #e53e3e; /* Vibrant coral */
+  --text-primary: #1a3c4d; /* Rich navy */
+  --text-secondary: #4a5e6a; /* Muted charcoal */
+  --bg-light: #ffffff; /* Clean white */
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --hover-bg: rgba(44, 122, 123, 0.1);
+  --transition: 0.3s ease-in-out;
+}
+
+/* Main Container */
+.container {
+  padding: 15px;
+  background: var(--bg-light);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Product Card Wrapper */
+.cardWrapper {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.1)
+  );
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: all var(--transition);
+  text-decoration: none;
+  color: var(--text-primary);
+  min-height: 0; /* Dynamic height */
+}
+
+/* Fixed: Hover effect */
+.cardWrapper:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Container */
+.imageDiv {
+  width: 100%;
+  padding-top: 110%; /* Aspect ratio ~4:3 */
+  position: relative;
+  background-color: var(--secondary-color);
+  overflow: hidden;
+}
+
+.imageDiv img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px 15px 0 0;
+  transition: transform var(--transition);
+}
+
+.cardWrapper:hover .imageDiv img {
+  transform: scale(1.1); /* Zoom effect on hover */
+}
+
+/* Card Body */
+.cardBody {
+  padding: 15px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  font-family: "Work Sans", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  text-transform: capitalize;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.category {
+  font-family: "Lato", sans-serif;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+  text-transform: capitalize;
+  opacity: 0.9;
+}
+
+.ratingStars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.ratingStars svg {
+  font-size: 1.1rem;
+}
+
+.price {
+  font-family: "Work Sans", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.btnPrimary,
+.btnSuccess {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-family: "Work Sans", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.btnPrimary {
+  background: linear-gradient(90deg, var(--primary-color), #1f5a5b);
+  color: #fff;
+}
+
+.btnPrimary:hover {
+  background: linear-gradient(90deg, #1f5a5b, #1a4d4e);
+  transform: translateY(-2px);
+}
+
+.btnSuccess {
+  background: linear-gradient(90deg, var(--secondary-color), #c92d2d);
+  color: #fff;
+}
+
+.btnSuccess:hover {
+  background: linear-gradient(90deg, #c92d2d, #a32424);
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cardWrapper {
+    margin: 10px 0;
+  }
+
+  .imageDiv {
+    padding-top: 65%; /* Adjusted aspect ratio for tablet */
+  }
+
+  .cardBody {
+    padding: 12px;
+  }
+
+  .title {
+    font-size: 1.1rem;
+  }
+
+  .category {
+    font-size: 0.9rem;
+  }
+
+  .price {
+    font-size: 1.1rem;
+  }
+
+  .btnPrimary,
+  .btnSuccess {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .btnPrimary,
+  .btnSuccess {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardWrapper {
+    margin: 8px 0;
+  }
+
+  .imageDiv {
+    padding-top: 50%; /* Adjusted aspect ratio for mobile */
+  }
+
+  .cardBody {
+    padding: 10px;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  .category {
+    font-size: 0.85rem;
+  }
+
+  .price {
+    font-size: 1rem;
+  }
+
+  .btnPrimary,
+  .btnSuccess {
+    padding: 6px;
+    font-size: 0.85rem;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .btnPrimary,
+  .btnSuccess {
+    width: 100%;
+  }
+}
