@@ -1,11 +1,9 @@
-import React from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Dialog from "@mui/material/Dialog";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
-import { useState, useContext, useEffect } from "react";
 import { IoCloseSharp } from "react-icons/io5";
-import { FaStar, FaStarHalfAlt } from "react-icons/fa";
-import { FaCartPlus } from "react-icons/fa";
+import { FaStar, FaStarHalfAlt, FaCartPlus } from "react-icons/fa";
 import { TiMinus } from "react-icons/ti";
 import { FaPlus } from "react-icons/fa6";
 import GetProducts from "../../context/GetProducts";
@@ -22,7 +20,10 @@ const ProductModel = ({ productId, closeProductModel }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [open, setOpen] = useState(true);
   const [totalProduct, setTotalProduct] = useState(1);
-  const [snackbarOpen, setSnackbarOpen] = useState(false);
+
+  // ✅ Two separate snackbars
+  const [successSnackbarOpen, setSuccessSnackbarOpen] = useState(false);
+  const [loginSnackbarOpen, setLoginSnackbarOpen] = useState(false);
 
   const product = products.find((p) => p._id === productId);
 
@@ -65,10 +66,11 @@ const ProductModel = ({ productId, closeProductModel }) => {
     setTotalProduct((prev) => (prev < stock ? prev + 1 : stock));
   };
 
+  // ✅ Updated handleAddToCart with login check
   const handleAddToCart = async () => {
     const user = JSON.parse(localStorage.getItem("userData"));
     if (!user || !user.userId) {
-      setSnackbarOpen(true);
+      setLoginSnackbarOpen(true); // Show login warning
       return;
     }
 
@@ -86,7 +88,7 @@ const ProductModel = ({ productId, closeProductModel }) => {
     try {
       const response = await postData("/api/cart/add", cartItem);
       if (response.success) {
-        setSnackbarOpen(true);
+        setSuccessSnackbarOpen(true); // Show success snackbar
       }
     } catch (err) {
       console.error("Error adding to cart:", err);
@@ -233,23 +235,35 @@ const ProductModel = ({ productId, closeProductModel }) => {
         </div>
       </div>
 
-      {/* Snackbar */}
+      {/* ✅ Success Snackbar */}
       <Snackbar
-        open={snackbarOpen}
+        open={successSnackbarOpen}
         autoHideDuration={3000}
-        onClose={() => setSnackbarOpen(false)}
+        onClose={() => setSuccessSnackbarOpen(false)}
         anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-        sx={{
-          position: "absolute",
-          top: "150%", // ⬅️ Moves it above the Add to Cart button
-        }}
       >
         <Alert
-          onClose={() => setSnackbarOpen(false)}
+          onClose={() => setSuccessSnackbarOpen(false)}
           severity="success"
           sx={{ width: "100%" }}
         >
           Item added to cart!
+        </Alert>
+      </Snackbar>
+
+      {/* ✅ Login Warning Snackbar */}
+      <Snackbar
+        open={loginSnackbarOpen}
+        autoHideDuration={3000}
+        onClose={() => setLoginSnackbarOpen(false)}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+      >
+        <Alert
+          onClose={() => setLoginSnackbarOpen(false)}
+          severity="warning"
+          sx={{ width: "100%" }}
+        >
+          Please login first to add items to cart!
         </Alert>
       </Snackbar>
     </Dialog>
